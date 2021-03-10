@@ -3,6 +3,7 @@ const lost = document.getElementById("lost");
 
 let lostMolesAmount;
 let deadMolesAmount;
+
 function getHole(ind) {
   return document.getElementById(`hole${ind}`);
 };
