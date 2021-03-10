@@ -1,6 +1,6 @@
 const modalMain = document.getElementById("modal_main");
 const modalSuccess = document.getElementById("modal_success");
-const showSuccess = document.querySelector(".show-success");
+const showSuccess = document.querySelector("show-success");
 
 modalMain.classList.add("modal_active");
 
