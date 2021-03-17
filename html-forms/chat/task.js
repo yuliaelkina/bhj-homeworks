@@ -23,7 +23,7 @@ userText.addEventListener("keydown", (e) => {if (e.code == "Enter" && userText.v
 
   `
   userText.value = "";
-  messageList.scrollTop = 999999;
+  messageList.scrollIntoView(false);
 }});
 
 function openChat () {
