@@ -24,8 +24,15 @@ body {
   top: 0;
   right: 0;
   border: 2px solid green;
-  border-radius: 50%;
+  border-radius: 50%;s
   padding: 2px 5px;
+}
+
+.cart__product-close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 20px;
 }
 
 .cart__product-image {

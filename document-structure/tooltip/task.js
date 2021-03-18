@@ -15,8 +15,13 @@ for (let i = 0; i< hasTooltipElements.length; i++){
 
 
 function showTooltip (ind) {
-  tooltips.forEach(element => {element.classList.remove("tooltip_active");
-  });
-  tooltips[ind].classList.toggle("tooltip_active");
-  tooltips[ind].style = `left: ${tooltips[ind].dataset.left}px`;
+  if (tooltips[ind].classList.contains("tooltip_active")) {
+    tooltips[ind].classList.remove("tooltip_active");
+  }
+  else {
+    tooltips.forEach(element => {element.classList.remove("tooltip_active");
+    });
+    tooltips[ind].classList.add("tooltip_active");
+    tooltips[ind].style = `left: ${tooltips[ind].dataset.left}px`;
+  }
 };

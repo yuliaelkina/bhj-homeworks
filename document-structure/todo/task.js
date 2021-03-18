@@ -11,7 +11,7 @@ addButton.addEventListener("click", (e) => {e.preventDefault();
 });
 
 function addTask () {
-  if (document.querySelector(".tasks__input").value) {
+  if (document.querySelector(".tasks__input").value.trim()) {
   let newTask = document.createElement("div");
   newTask.classList.add("task");
   newTask.innerHTML = `

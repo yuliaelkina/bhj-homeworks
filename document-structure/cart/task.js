@@ -43,13 +43,18 @@ function addToCart () {
     showCart();
   }
   else {
-    cart.innerHTML += `
-      <div class="cart__product" data-id="${productId}">
+    let newProductInCart = document.createElement("div");
+    newProductInCart.classList.add("cart__product");
+    newProductInCart.dataset.id = productId;
+    newProductInCart.innerHTML = `
         <img class="cart__product-image" src="${imageSrc}">
         <div class="cart__product-count">${addedQuantity}</div>
-      </div>
+        <div class="cart__product-close">x</div>
     `;
-    product.querySelector(".product__quantity-value").textContent = 1;
+    console.log(newProductInCart);
+    newProductInCart.querySelector(".cart__product-close").addEventListener("click", removeFromCart);
+     cart.append(newProductInCart);
+     product.querySelector(".product__quantity-value").textContent = 1;
     showCart();
   }
 }
@@ -59,13 +64,11 @@ function showCart() {
 let productsInCart = document.querySelectorAll(".cart__product");
 if (productsInCart.length > 0) {
   document.querySelector(".cart").classList.add("cart_active");
-  productsInCart.forEach((el) => el.addEventListener("click", removeFromCart))
 }
 else {
   document.querySelector(".cart").classList.remove("cart_active");
-  console.log("скрыть корзину");
 };
 };
 function removeFromCart () {
-  this.remove();
+  this.closest(".cart__product").remove();
 }
