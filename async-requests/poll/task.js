@@ -15,7 +15,6 @@ xhr.addEventListener('readystatechange',() => {if (xhr.readyState === xhr.DONE) 
     answer.textContent = el;
     document.querySelector(".poll__answers").append(answer);
   });
-  console.log(poll.data);
 }});
 };
 
@@ -26,7 +25,6 @@ function getResults (Id, Ind) {
   xhrRes.send( `vote=${Id}&answer=${Ind}`);
   xhrRes.addEventListener('readystatechange',() => {if (xhrRes.readyState === xhrRes.DONE) {
     let results = JSON.parse(xhrRes.responseText);
-    console.log(results);
     let resultAlert = "Результаты голосования: ";
     results.stat.forEach((el) => {
       resultAlert += `${el.answer}: ${el.votes}; `;
