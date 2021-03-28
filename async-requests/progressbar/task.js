@@ -1,13 +1,13 @@
 const form = document.getElementById('form');
-form.addEventListener('submit', (e)=>{
+const progress = document.getElementById('progress');
+form.addEventListener('submit', function(e) {
   e.preventDefault();
-  let formData = new FormData(form);
+  let data = new FormData(form);
   let xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://netology-slow-rest.herokuapp.com/upload.php');
-  xhr.send(formData);
   xhr.upload.onprogress = function(event) {
-    console.log(event.loaded + ' / ' + event.total);
+    progress.value = Math.round((event.loaded/event.total)*100)/100;
   };
-  
+  xhr.open('POST', 'https://netology-slow-rest.herokuapp.com/upload.php');
+  xhr.send(data);
 });
 
